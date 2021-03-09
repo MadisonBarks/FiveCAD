@@ -1,0 +1,22 @@
+[{
+        "vehicleTag": "FAKEBARK",
+        "vehicleYear": "2011",
+        "vehicleMake": "Vapid",
+        "vehicleModel": "Stainer",
+        "vehicleColour": "Blue"
+    },
+    {
+        "vehicleTag": "FASTBARK",
+        "vehicleYear": "2017",
+        "vehicleMake": "Banshee",
+        "vehicleModel": "300",
+        "vehicleColour": "Blue"
+    },
+    {
+        "vehicleTag": "BIGBARK",
+        "vehicleYear": "2015",
+        "vehicleMake": "Vapid",
+        "vehicleModel": "Sandking XL",
+        "vehicleColour": "Black"
+    }
+]

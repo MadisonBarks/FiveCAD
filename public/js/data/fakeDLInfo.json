@@ -1,0 +1,33 @@
+[{
+        "firstName": "Madison",
+        "middleName": "Bark",
+        "lastName": "Arituro",
+        "fullName": "Madison Arituro",
+        "dlNumber": "A636-542-96-599-0",
+        "dateOfBirth": "03/19/1996",
+        "gender": "F",
+        "race": "W",
+        "dlExpire": "03/19/2022",
+        "addressPostal": "1029",
+        "addressStreet": "Route 13",
+        "addressSuffix": "",
+        "bodyBuild": "Average",
+        "validCDL": true
+    },
+    {
+        "firstName": "Crystal",
+        "middleName": "<3",
+        "lastName": "Arituro",
+        "fullName": "Crystal Arituro",
+        "dlNumber": "A636-102-99-599-0",
+        "dateOfBirth": "04/19/1999",
+        "gender": "F",
+        "race": "W",
+        "dlExpire": "04/19/2022",
+        "addressPostal": "1029",
+        "addressStreet": "Route 13",
+        "addressSuffix": "",
+        "bodyBuild": "Average",
+        "validCDL": false
+    }
+]

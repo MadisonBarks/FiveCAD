@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{> header_dark}}
+  <title>New Citation - FiveCAD</title>
+  <style>
+    .autocomplete-item {
+      cursor: pointer;
+    }
+
+    .autocomplete-item:hover {
+      background-color: var(--gray-500);
+    }
+
+    .autocomplete-list {
+      z-index: 1000;
+    }
+
+    .autoComplete_highlighted {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    {{> navbar}}
+  </header>
+
+  <div class="container-fluid text-light">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+        <div class="position-sticky pt-3">
+          {{> sidebar_nav}}
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+          class="d-flex flex-column justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">New Citation</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/eCitations">eCitations</a></li>
+              <li class="breadcrumb-item active">New Citation</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div>
+          <form class="row g-3">
+            {{!-- Row --}}
+            <div class="col-md-2">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="department" disabled value="PBPD">
+                <label for="department">Department</label>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <h3 class="text-center">New Citation</h3>
+            </div>
+            <div class="col-md-2">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="citationNumber" disabled value="<to be issued>">
+                <label for="citationNumber">Citation Number</label>
+              </div>
+            </div>
+            {{!-- Row End --}}
+            {{!-- Row --}}
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="division" disabled value="Motor Vehicle Enforcement">
+                <label for="division">Division</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="citationDate" disabled>
+                <label for="citationDate">Citation Date</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="citationTime" disabled>
+                <label for="citationTime">Citation Time</label>
+              </div>
+            </div>
+            {{!-- Row End --}}
+            <hr />
+            <div class="col-md-12">
+              <h5>Person Information</h5>
+            </div>
+            {{!-- Row --}}
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="dlNumber">
+                <label for="city">DL Number</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary align-middle" id="personSearch" data-bs-toggle="modal" data-bs-target="#personSearchModal">
+                <i data-feather="search"></i> Search
+              </button>
+            </div>
+            <div class="col-md-2">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="dlExpire" disabled>
+                <label for="dlExpire">DL Exiration Date</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="validCDL" disabled>
+                <label class="form-check-label" for="validCDL">Valid CDL</label>
+              </div>
+            </div>
+            {{!-- Row End --}}
+            {{!-- Row --}}
+            {{> form_civ disable=true}}
+            {{!-- Row End --}}   
+            <hr />
+            <div class="col-md-12">
+              <h5>Vehicle Information</h5>
+            </div>
+            {{!-- Row --}}
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="vehicleTag">
+                <label for="vehicleTag">Vehicle Tag</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary align-middle" id="vehicleSearch"><i data-feather="search"></i> Search</button>
+            </div>
+            <div class="col-md-4">
+              <h5>&nbsp;</h5>
+            </div>
+            {{!-- Row End --}}
+            {{!-- Row --}}
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="vehicleYear" disabled>
+                <label for="vehicleYear">Year</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="vehicleMake" disabled>
+                <label for="vehicleMake">Vehicle Make</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="vehicleModel" disabled>
+                <label for="vehicleModel">Vehicle Model</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="vehicleColour" disabled>
+                <label for="vehicleColour">Vehicle Color</label>
+              </div>
+            </div>
+            {{!-- Row End --}}
+            {{!-- Row --}}
+            <div class="col-md-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="hazmat">
+                <label class="form-check-label" for="hazmat">Hazmat Involved</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="commercialVehicle">
+                <label class="form-check-label" for="commercialVehicle">Commercial Vehicle</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="16PlusPassengers">
+                <label class="form-check-label" for="16PlusPassengers">16 Passengers or more</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="motorcycle">
+                <label class="form-check-label" for="motorcycle">Motorcycle</label>
+              </div>
+            </div>
+            {{!-- Row End --}}
+            <hr />
+            <div class="col-md-12">
+              <h5>Violation Location information</h5>
+            </div>
+            {{!-- Row --}}
+            <div class="col-md-2">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="violationAddressPostal">
+                <label for="violationAddressPostal">Violation Address Postal</label>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="violationAddressStreet">
+                <label for="violationAddressStreet">Violation Address Street</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="violationAddressSuffix">
+                <label for="violationAddressSuffix">Violation Address Suffix</label>
+              </div>
+            </div>
+            {{!-- Row End --}}
+            {{!-- Row --}}
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="city">
+                <label for="city">Violation City</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h5>&nbsp;</h5>
+            </div>
+            {{!-- Row End --}}
+            <hr />
+            <div class="col-md-12">
+              <h5>Violation Information</h5>
+            </div>
+            {{!-- Row --}}
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="violationDesc">
+                <label for="violationDesc">Violation Description</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <h5>&nbsp;</h5>
+            </div>
+            <div class="col-md-1">
+              <div class="form-floating">
+                <input type="number" class="form-control" id="actualSpeed">
+                <label for="actualSpeed">Actual Speed</label>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-floating">
+                <input type="number" class="form-control" id="postedSpeed">
+                <label for="postedSpeed">Posted Speed</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="schoolZone">
+                <label class="form-check-label" for="schoolZone">School Zone</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="workZone">
+                <label class="form-check-label" for="workZone">Work Zone</label>
+              </div>
+            </div>
+            {{!-- Row End --}}
+            {{!-- Row --}}
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="violationChap" disabled>
+                <label for="violationChap">Chapter</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="violationSec" disabled>
+                <label for="violationSec">Section</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="violationSub" disabled>
+                <label for="violationSub">Subsection</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="violationFine" disabled>
+                <label for="violationFine">Fine</label>
+              </div>
+            </div>
+            {{!-- Row End --}}
+            {{!-- Row --}}
+            <div class="col-md-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="aggressiveDriving">
+                <label class="form-check-label" for="aggressiveDriving">Aggressive Driving</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="dlSeized">
+                <label class="form-check-label" for="dlSeized">DL Seized</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="crash">
+                <label class="form-check-label" for="crash">Crash</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="injury">
+                <label class="form-check-label" for="injury">Injury</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="seriousInjury">
+                <label class="form-check-label" for="seriousInjury">Serious Injury</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="fatal">
+                <label class="form-check-label" for="fatal">Fatal Injury</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="propertyDamage">
+                <label class="form-check-label" for="propertyDamage">Property Damage</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-floating">
+                <input type="number" class="form-control" id="damageAmount">
+                <label for="damageAmount">Property Damage Amount</label>
+              </div>
+            </div>
+            {{!-- Row End --}}
+            {{!-- Row --}}
+            <div class="col-md-12">
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Quick Comments" id="comments"></textarea>
+                <label for="comments">Quick Comments</label>
+              </div>
+            </div>
+            <hr>
+            {{!-- Row --}}
+            <div class="col-md-12">
+              <h6> 
+                By sigining below, I certify that this citation has been delivered to the person stated above, and that all information in the above
+                citation is true and accurate to the best of my knowledge. 
+              </h6>
+            </div>
+            {{!-- Row End --}}
+            {{!-- Row --}}
+            <div class="col-md-4">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="officerName" value="Madison Arituro" disabled>
+                <label for="officerName">Officer Name</label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h5>&nbsp;</h5>
+            </div>
+            <div class="col-md-4">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="officerSignature" value="Madison Arituro" disabled style="font-family: 'Pacifico', cursive;">
+                <label for="officerSignature">Officer Signature</label>
+              </div>
+            </div>
+            {{!-- Row End --}}
+            {{!-- Row --}}
+            <div class="col-md-8">
+              <h5>&nbsp;</h5>
+            </div>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-primary">Issue Ticket</button>
+            </div>
+            {{!-- Row End --}}
+            <div class="col-md-12">
+              <h5>&nbsp;</h5>
+            </div>
+          </form>
+        </div>
+      </main>
+
+      {{!-- 
+      
+      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      !!!!!!!!!!!!!!!!!!!!!!!!!   MODALS   !!!!!!!!!!!!!!!!!!!!!!!!!!!
+      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+       --}}
+
+      <div class="modal fade" id="personSearchModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Search for a DL Number</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="row g-3">
+                <div class="col-md-4">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="personSearchFirst">
+                    <label for="personSearchFirst">First Name</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="personSearchLast">
+                    <label for="personSearchLast">Last Name</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-floating">
+                    <input type="date" class="form-control" id="personSearchDOB">
+                    <label for="personSearchDOB">Date of Birth</label>
+                  </div>
+                </div>
+              </form>
+              <hr>
+              <h4 class="text-center">Results</h4>
+              <table class="table" id="personSearchResultsTable">
+                <thead>
+                  <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Race</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <td>Madison</td>
+                  <td>Arituro</td>
+                  <td>W</td>
+                  <td>F</td>
+                  <td><button class="btn btn-primary personSearchResultItem" data-dlnumber="dlnumber">Select</button></td>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+    integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@8.2.1/dist/js/autoComplete.min.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="/js/citation.js"></script>
+  <script>
+    feather.replace();
+  </script>
+  <script>
+    var currentDate = new Date();
+    document.getElementById('citationDate').value = (currentDate.getMonth() + 1) + '/' + currentDate.getDate() + '/' + currentDate.getFullYear()
+    document.getElementById('citationTime').value = currentDate.getHours() + ':' + currentDate.getMinutes()
+  </script>
+</body>
+
+</html>

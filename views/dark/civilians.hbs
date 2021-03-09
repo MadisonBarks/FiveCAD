@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{> header_dark}}
+  <title>New Citation - FiveCAD</title>
+</head>
+
+<body>
+
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        {{> navbar}}
+    </header>
+
+    <div class="container-fluid text-light">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+                <div class="position-sticky pt-3">
+                    {{> sidebar_nav}}
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div
+                    class="d-flex flex-column justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Civilian Ped Management</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active">Civilians</li>
+                        </ol>
+                    </nav>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="card w-25">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Total Civilian Peds</h4>
+                            <h3>10</h3>
+                        </div>
+                    </div>
+
+                    <div class="card w-25">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Total Vehicles Registered</h4>
+                            <h3>20</h3>
+                        </div>
+                    </div>
+
+                    <div class="card w-25">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Total Deaths</h4>
+                            <h3>1.2M</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">DL Number</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Race</th>
+                            <th scope="col">Total Vehicles</th>
+                            <th scope="col">Total Arrests</th>
+                            <th scope="col" class="align-right"><a href="/civilian/new"><button type="button" class="btn btn-secondary"><i data-feather="user-plus"></i>Add Civilian</button></a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="align-middle">
+                            <td>Madison Bark Arituro</td>
+                            <td>A636-542-96-599-0</td>
+                            <td>24</td>
+                            <td>Female</td>
+                            <td>White</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <button type="button" class="btn btn-success"><i data-feather="edit-3" style="pr-1"></i>Edit</button>
+                                    <button type="button" class="btn btn-danger"><i data-feather="user-x"></i>Delete</button>
+                                    <button type="button" class="btn btn-primary"><i data-feather="credit-card"></i>Edit Licenses</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="align-middle">
+                            <td>Crystal Arituro</td>
+                            <td>A636-102-99-599-0</td>
+                            <td>21</td>
+                            <td>Female</td>
+                            <td>White</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <button type="button" class="btn btn-success"><i data-feather="edit-3" style="pr-1"></i>Edit</button>
+                                    <button type="button" class="btn btn-danger"><i data-feather="user-x"></i>Delete</button>
+                                    <button type="button" class="btn btn-primary"><i data-feather="credit-card"></i>Edit Licenses</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="align-middle">
+                            <td>Kaivo Stinky</td>
+                            <td>S352-503-97-599-0</td>
+                            <td>24</td>
+                            <td>Male</td>
+                            <td>White</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <button type="button" class="btn btn-success"><i data-feather="edit-3" style="pr-1"></i>Edit</button>
+                                    <button type="button" class="btn btn-danger"><i data-feather="user-x"></i>Delete</button>
+                                    <button type="button" class="btn btn-primary"><i data-feather="credit-card"></i>Edit Licenses</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </main>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+        crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<div class="col-md-4">
+  <div class="form-floating">
+    <input type="text" class="form-control" id="firstName" {{#if disable}}disabled{{/if}}>
+    <label for="firstName">First Name</label>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="form-floating">
+    <input type="text" class="form-control" id="middleName" {{#if disable}}disabled{{/if}}>
+    <label for="middleName">Middle Name</label>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="form-floating">
+    <input type="text" class="form-control" id="lastName" {{#if disable}}disabled{{/if}}>
+    <label for="lastName">Last Name</label>
+  </div>
+</div>
+{{!-- Row End --}}
+{{!-- Row --}}
+<div class="col-md-2">
+  <div class="form-floating">
+    <input type="text" class="form-control" id="addressPostal" {{#if disable}}disabled{{/if}}>
+    <label for="addressPostal">Address Postal</label>
+  </div>
+</div>
+<div class="col-md-8">
+  <div class="form-floating">
+    <input type="text" class="form-control" id="addressStreet" {{#if disable}}disabled{{/if}}>
+    <label for="addressStreet">Address Street</label>
+  </div>
+</div>
+<div class="col-md-2">
+  <div class="form-floating">
+    <input type="text" class="form-control" id="addressSuffix" {{#if disable}}disabled{{/if}}>
+    <label for="addressSuffix">Address Suffix (Direction, etc)</label>
+  </div>
+</div>
+{{!-- Row End --}}
+{{!-- Row --}}
+<div class="col-md-3">
+  <div class="form-floating">
+    <input {{#if disable}}type="text"{{else}}type="date"{{/if}} class="form-control" id="dateOfBirth" {{#if disable}}disabled{{/if}}>
+    <label for="addressPostal">Date of Birth</label>
+  </div>
+</div>
+<div class="col-md-3">
+  <div class="form-floating">
+    <input type="text" class="form-control" id="gender" {{#if disable}}disabled{{/if}}>
+    <label for="gender">Gender</label>
+  </div>
+</div>
+<div class="col-md-3">
+  <div class="form-floating">
+    <input type="text" class="form-control" id="race" {{#if disable}}disabled{{/if}}>
+    <label for="race">Race</label>
+  </div>
+</div>
+{{#if disable}}
+<div class="col-md-3">
+  <div class="form-floating">
+    <input type="text" class="form-control" id="bodyBuild" {{#if disable}}disabled{{/if}}>
+    <label for="bodyBuild">Body Build</label>
+  </div>
+</div>
+{{else}}
+<div class="col-md-3">
+  <div class="form-floating">
+    <select class="form-select" id="build" aria-label="Body Build">
+      <option>Underweight</option>
+      <option>Thin</option>
+      <option selected>Average</option>
+      <option>Overweight</option>
+      <option>Obese</option>
+    </select>
+    <label for="build">Body Build</label>
+  </div>
+</div>
+{{/if}}

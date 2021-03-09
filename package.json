@@ -1,0 +1,27 @@
+{
+  "name": "fivecad",
+  "version": "0.0.1",
+  "description": "A CAD for FiveM LEO roleplay servers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuvvy/FiveCAD.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wuvvy/FiveCAD/issues"
+  },
+  "homepage": "https://github.com/wuvvy/FiveCAD#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.3.5"
+  }
+}
